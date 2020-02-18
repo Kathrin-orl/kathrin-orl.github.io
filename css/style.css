@@ -10,9 +10,13 @@
     font-weight: normal;
     font-style: normal;
 }
+
+a:focus {
+    outline: none;
+}
   
 body {
-    background-color: #141218;
+    background-color: #141118;
     font-family: "Roboto", sans-serif ;
     color: #FFFFFF;
     min-height: 100vh;
@@ -332,6 +336,7 @@ body {
 .menu-button {
     display: none;
 }
+
 /* Responsive */
 @media (max-width: 760px) {
     .play {
@@ -389,6 +394,7 @@ body {
     }
     .menu-button-active {
         height: 0;
+        z-index: 1;
     }
     .menu-button-active:before {
         transform: rotate(45deg);
@@ -410,6 +416,8 @@ body {
     }
     .header-active {
         display: flex;
+        z-index: 1;
+        border-radius: 0 0 0 15px;
     }
     .logo {
         margin-bottom: 25px;

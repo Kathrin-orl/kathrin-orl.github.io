@@ -24,8 +24,8 @@ var rating = document.querySelector('.rating'),
 
  rating.onclick = function (e) {
    var target = e.target;
-   document.getElementById('rating-num').innerHTML = target.getAttribute('data-rate');
   if (target.classList.contains('rating-item')) {
+    document.getElementById('rating-num').innerHTML = target.getAttribute('data-rate');
     removeClass(ratingItem, 'current-active')
     target.classList.add('active','current-active');
     localStorage.setItem('rateNum', target.getAttribute('data-rate'))
@@ -33,6 +33,9 @@ var rating = document.querySelector('.rating'),
  }
 
  window.onload = function () {
+   if(localStorage.getItem('rateNum') === null) {
+    document.getElementById('rating-num').innerHTML = 1;
+   }
   for(var i = 0, iLen = ratingItem.length; i <iLen; i ++) {
     removeClass(ratingItem[i], 'current-active')
     if(ratingItem[i].getAttribute('data-rate') === localStorage.getItem('rateNum')) {
@@ -93,7 +96,6 @@ var rating = document.querySelector('.rating'),
 }
 
 
-document.getElementById('rating-num').innerHTML = 1;
 if(localStorage.getItem('rateNum') !== undefined) {
   document.getElementById('rating-num').innerHTML = localStorage.getItem('rateNum');
 }
